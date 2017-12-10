@@ -20,8 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="funcionario")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name="Funcionario.all", query="SELECT f FROM funcionario f")
-   ,@NamedQuery(name="Funcionario.findDesc", query="SELECT f FROM funcionario f WHERE f.desc = :desc")
+    @NamedQuery(name="Funcionario.all", query="SELECT f FROM Funcionario f")
+   ,@NamedQuery(name="Funcionario.findDesc", query="SELECT f FROM Funcionario f WHERE f.descricao = :descricao")
 })
 public class Funcionario implements Serializable{
     

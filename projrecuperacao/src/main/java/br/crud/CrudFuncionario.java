@@ -13,7 +13,7 @@ import javax.persistence.Persistence;
  *
  * @author Tamy
  */
-public class CrudFuncionario extends AbstractCrud<Funcionario>{
+public class CrudFuncionario extends AbstractCrud<br.entity.Funcionario>{
     private EntityManager em;
     
     private static final String PU = EMNames.EMN1;

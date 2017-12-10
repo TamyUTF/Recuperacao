@@ -6,13 +6,10 @@
 package br.jsf;
 
 import br.entity.Cliente;
-import javax.annotation.ManagedBean;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-/**
- *
- * @author Tamy
- */
+
 @ManagedBean
 @RequestScoped
 public class JsfCliente {
@@ -24,6 +21,7 @@ public class JsfCliente {
 
     public JsfCliente() {
     }
+    
     
     public void persist(){
         Cliente c = new Cliente();

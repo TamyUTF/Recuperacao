@@ -10,5 +10,5 @@ package br.crud;
  * @author Tamy
  */
 public class EMNames {
-    public static final String EMN1 = "dePU";
+    public static final String EMN1 = "PU";
 }

@@ -16,8 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="cliente")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name="Cliente.all", query="SELECT c FROM cliente c")
-   ,@NamedQuery(name="Cliente.findNome", query="SELECT c FROM cliente c WHERE c.nome = :nome")
+    @NamedQuery(name="Cliente.findAll", query = "SELECT c FROM Cliente c")
+   ,@NamedQuery(name="Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome")
 })
 public class Cliente implements Serializable{
     
@@ -37,6 +37,8 @@ private String sexo;
 private String nasc;
 @Column(name="fkfuncionario")
 private int fkfuncionario;
+
+    public Cliente() {}    
 
     public Integer getIdcliente() {
         return idcliente;
@@ -78,7 +80,5 @@ private int fkfuncionario;
         this.fkfuncionario = fkfuncionario;
     }
 
-    public Cliente() {
-    }
-    
+
 }

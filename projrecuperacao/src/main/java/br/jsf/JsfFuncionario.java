@@ -5,15 +5,15 @@
  */
 package br.jsf;
 
-import br.entity.Funcionario;
-import javax.annotation.ManagedBean;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
 
 @ManagedBean
 @RequestScoped
 public class JsfFuncionario {
     private int idfuncionario;
-    private String desc;
+    private String descricao;
 
     public JsfFuncionario() {
     }
@@ -26,19 +26,44 @@ public class JsfFuncionario {
         this.idfuncionario = idfuncionario;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public void persist() {
-        Funcionario f = new Funcionario();
+        br.entity.Funcionario f = new br.entity.Funcionario();
         f.setIdfuncionario(idfuncionario);
-        f.setDescricao(desc);
+        f.setDescricao(descricao);
         new br.crud.CrudFuncionario().persist(f);
+        this.idfuncionario=0;
+        this.descricao = "";
+    }
+    
+    public java.util.Collection<br.entity.Funcionario> getAll(){
+        return new br.crud.CrudFuncionario().getAll();
+    }
+    
+    public void remove(br.entity.Funcionario func){
+        new br.crud.CrudFuncionario().remove(func);
+    }
+    
+    public String upddate(br.entity.Funcionario func){
+        this.idfuncionario = func.getIdfuncionario();
+        this.descricao = func.getDescricao();
+        return "merge.xhtml";
+    }
+    
+    public void merge(){
+        br.entity.Funcionario f = new br.entity.Funcionario();
+        f.setIdfuncionario(idfuncionario);
+        f.setDescricao(descricao);
+        new br.crud.CrudFuncionario().merge(f);
+        this.descricao = "";
+        this.idfuncionario = 0;    
     }
 
 }
