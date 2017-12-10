@@ -5,10 +5,30 @@
  */
 package br.crud;
 
+import br.entity.Funcionario;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author Tamy
  */
-public class CrudFuncionario {
+public class CrudFuncionario extends AbstractCrud<Funcionario>{
+    private EntityManager em;
+    
+    private static final String PU = EMNames.EMN1;
+    
+    public CrudFuncionario(){
+            super(Funcionario.class);
+    }
+
+    @Override
+    protected EntityManager getEntityManager() {
+       if (em == null) {
+            em = Persistence.createEntityManagerFactory(PU).createEntityManager();
+        }
+        return em;
+    }
+    
     
 }

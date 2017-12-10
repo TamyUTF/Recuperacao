@@ -34,7 +34,7 @@ private String nome;
 @Column(name="sexo")
 private String sexo;
 @Column(name="nasc")
-private int nasc;
+private String nasc;
 @Column(name="fkfuncionario")
 private int fkfuncionario;
 
@@ -62,11 +62,11 @@ private int fkfuncionario;
         this.sexo = sexo;
     }
 
-    public int getNasc() {
+    public String getNasc() {
         return nasc;
     }
 
-    public void setNasc(int nasc) {
+    public void setNasc(String nasc) {
         this.nasc = nasc;
     }
 

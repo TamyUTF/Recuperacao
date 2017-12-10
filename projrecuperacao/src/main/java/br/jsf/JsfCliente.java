@@ -5,21 +5,68 @@
  */
 package br.jsf;
 
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import br.entity.Cliente;
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.RequestScoped;
 
 /**
  *
  * @author Tamy
  */
-@Named(value = "jsfCliente")
-@Dependent
+@ManagedBean
+@RequestScoped
 public class JsfCliente {
+    private int idcliente;
+    private String nome;
+    private String nasc;
+    private int fkfuncionario;
 
-    /**
-     * Creates a new instance of JsfCliente
-     */
+
     public JsfCliente() {
+    }
+    
+    public void persist(){
+        Cliente c = new Cliente();
+        c.setSexo(nome);
+        c.setIdcliente(idcliente);
+        c.setNasc(nasc);
+        c.setFkfuncionario(fkfuncionario);
+        new br.crud.CrudCliente().persist(c);
+        this.nome = "";
+        
+        
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNasc() {
+        return nasc;
+    }
+
+    public void setNasc(String nasc) {
+        this.nasc = nasc;
+    }
+
+    public int getFkfuncionario() {
+        return fkfuncionario;
+    }
+
+    public void setFkfuncionario(int fkfuncionario) {
+        this.fkfuncionario = fkfuncionario;
     }
     
 }

@@ -18,7 +18,7 @@ public class CrudCliente extends AbstractCrud<Cliente>{
     
     private static final String PU = EMNames.EMN1;
 
-    public CrudCliente(Class entityClass) {
+    public CrudCliente() {
         super(Cliente.class);
     }
 

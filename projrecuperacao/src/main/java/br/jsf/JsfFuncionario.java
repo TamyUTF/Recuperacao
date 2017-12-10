@@ -5,21 +5,40 @@
  */
 package br.jsf;
 
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import br.entity.Funcionario;
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.RequestScoped;
 
-/**
- *
- * @author Tamy
- */
-@Named(value = "jsfFuncionario")
-@Dependent
+@ManagedBean
+@RequestScoped
 public class JsfFuncionario {
+    private int idfuncionario;
+    private String desc;
 
-    /**
-     * Creates a new instance of JsfFuncionario
-     */
     public JsfFuncionario() {
     }
-    
+
+    public int getIdfuncionario() {
+        return idfuncionario;
+    }
+
+    public void setIdfuncionario(int idfuncionario) {
+        this.idfuncionario = idfuncionario;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void persist() {
+        Funcionario f = new Funcionario();
+        f.setIdfuncionario(idfuncionario);
+        f.setDescricao(desc);
+        new br.crud.CrudFuncionario().persist(f);
+    }
+
 }
