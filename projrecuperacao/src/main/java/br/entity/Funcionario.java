@@ -1,9 +1,12 @@
 package br.entity;
 
+import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,9 +17,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Tamy
  */
 @Entity
-@Table(name="cliente")
+@Table(name="funcionario")
 @XmlRootElement
-public class Funcionario {
+@NamedQueries({
+    @NamedQuery(name="Funcionario.all", query="SELECT f FROM funcionario f")
+   ,@NamedQuery(name="Funcionario.findDesc", query="SELECT f FROM funcionario f WHERE f.desc = :desc")
+})
+public class Funcionario implements Serializable{
+    
+private static final long serialVersionUID = 1L;
 @Id
 @Basic(optional=false)
 @NotNull
