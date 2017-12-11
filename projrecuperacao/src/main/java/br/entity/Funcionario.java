@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name="Funcionario.all", query="SELECT f FROM Funcionario f")
-   ,@NamedQuery(name="Funcionario.findDesc", query="SELECT f FROM Funcionario f WHERE f.descricao = :descricao")
+   ,@NamedQuery(name="Funcionario.findDesc", query="SELECT f FROM Funcionario f WHERE UPPER(FUNCTION('TRANSLATE', f.descricao, 'ÁÀÃÂÄáàãâäÍÌÏíìïÚÙÜúùüÉÈÊËéèêëÓÒÕÔÖóòõôöÇç', 'AAAAAaaaaaIIIiiiUUUuuuEEEEeeeeOOOOOoooooCc')) LIKE :descricao")
 })
 public class Funcionario implements Serializable{
     

@@ -1,20 +1,21 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Projeto Recuperação</title>
-    </h:head>
-    <h:body>
-        Cliente:
-        <h:button value="Cadastrar" outcome="/crud/crudcliente/add.xhtml"></h:button>
-        <h:button value="Buscar"></h:button>
-        <h:button value="Listar"></h:button>
-        <br/>
-        Profissão:
-        <h:button value="Cadastrar" outcome="/crud/crudfuncionario/add.xhtml"></h:button>
-        <h:button value="Buscar"></h:button>
-        <h:button value="Listar" outcome="/crud/crudfuncionario/listall.xhtml"></h:button>
-        <br/>
-    </h:body>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <body>
+        <h:form>
+            Cliente:
+            <h:button value="Cadastrar" outcome="/crud/crudcliente/add.xhtml"></h:button>
+            <h:button value="Buscar" outcome="/crud/crudcliente/busca.xhtml"></h:button>
+            <h:button value="Listar" outcome="/crud/crudcliente/listall.xhtml"></h:button>
+            <br/>
+            Profissão:
+            <h:button value="Cadastrar" outcome="/crud/crudfuncionario/add.xhtml"></h:button>
+            <h:button value="Buscar" outcome="/crud/crudfuncionario/busca.xhtml"></h:button>
+            <h:button value="Listar" outcome="/crud/crudfuncionario/listall.xhtml"></h:button>
+            <br/>           
+        </h:form>
+    </body>
 </html>

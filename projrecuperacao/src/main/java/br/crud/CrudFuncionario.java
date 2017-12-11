@@ -6,6 +6,8 @@
 package br.crud;
 
 import br.entity.Funcionario;
+import java.text.Normalizer;
+import java.util.Collection;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -20,6 +22,17 @@ public class CrudFuncionario extends AbstractCrud<br.entity.Funcionario>{
     
     public CrudFuncionario(){
             super(Funcionario.class);
+    }
+    
+    public Collection<Funcionario> SelectByDesc(String desc){
+        try {
+            desc = Normalizer.normalize(desc, Normalizer.Form.NFD);
+	    desc = desc.replaceAll("[^\\p{ASCII}]", "");
+            return getEntityManager().createNamedQuery("Funcionario.findDesc").setParameter("descricao", "%" + desc.toUpperCase() + "%").getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null; 
     }
 
     @Override

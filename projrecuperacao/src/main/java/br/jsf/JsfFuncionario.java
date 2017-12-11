@@ -8,6 +8,10 @@ package br.jsf;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+/**
+ *
+ * @author Tamy
+ */
 
 @ManagedBean
 @RequestScoped
@@ -51,7 +55,7 @@ public class JsfFuncionario {
         new br.crud.CrudFuncionario().remove(func);
     }
     
-    public String upddate(br.entity.Funcionario func){
+    public String update(br.entity.Funcionario func){
         this.idfuncionario = func.getIdfuncionario();
         this.descricao = func.getDescricao();
         return "merge.xhtml";

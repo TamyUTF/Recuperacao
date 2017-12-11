@@ -1,6 +1,7 @@
 package br.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name="Cliente.findAll", query = "SELECT c FROM Cliente c")
-   ,@NamedQuery(name="Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome")
+   ,@NamedQuery(name="Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE UPPER(FUNCTION('TRANSLATE', c.nome, 'ÁÀÃÂÄáàãâäÍÌÏíìïÚÙÜúùüÉÈÊËéèêëÓÒÕÔÖóòõôöÇç', 'AAAAAaaaaaIIIiiiUUUuuuEEEEeeeeOOOOOoooooCc')) LIKE :nome")
 })
 public class Cliente implements Serializable{
     
@@ -32,9 +35,10 @@ private Integer idcliente;
 @Column(name="nome")
 private String nome;
 @Column(name="sexo")
-private String sexo;
+private char sexo;
 @Column(name="nasc")
-private String nasc;
+@Temporal(TemporalType.DATE)
+private Date nasc;
 @Column(name="fkfuncionario")
 private int fkfuncionario;
 
@@ -56,19 +60,19 @@ private int fkfuncionario;
         this.nome = nome;
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 
-    public String getNasc() {
+    public Date getNasc() {
         return nasc;
     }
 
-    public void setNasc(String nasc) {
+    public void setNasc(Date nasc) {
         this.nasc = nasc;
     }
 

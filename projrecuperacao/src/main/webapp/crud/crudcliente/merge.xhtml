@@ -6,6 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:body>
+        <h1>Alterar Cliente</h1>
         <h:form>
            <p:panelGrid columns="2">
                 <h:outputLabel value="Id:"></h:outputLabel>
@@ -25,7 +26,7 @@
                 <h:inputText value="#{jsfCliente.nasc}" >
                     <f:convertDateTime type="date" pattern="mm-dd-yyyy"/>
                 </h:inputText>
-                <p:commandButton value="Enviar" action="#{jsfCliente.persist()}"/>
+                <p:commandButton value="Alterar" action="#{jsfCliente.merge()}"/>
             </p:panelGrid> 
         </h:form>    
     </h:body>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:body>
+        <h1>Listagem de Clientes</h1>
+        <h:form>
+            <h:dataTable value="#{jsfCliente.all}" var="cli">
+                <h:column>
+                    <h:outputLabel value="#{cli.idcliente}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <h:outputLabel value="#{cli.nome}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <h:outputLabel value="#{cli.nasc}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <h:outputLabel value="#{cli.sexo}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <h:outputLabel value="#{cli.fkfuncionario}"></h:outputLabel>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Remover" action="#{jsfCliente.remove(cli)}" onclick="return confirm('Confirmar exclusão?');"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton value="Editar" action="#{jsfCliente.update(cli)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+          
+</html>
