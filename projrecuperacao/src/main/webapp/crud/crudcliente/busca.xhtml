@@ -9,23 +9,28 @@
         <h1>Consulta Cliente</h1>
         <h:form>
             <h:inputText value="#{jsfSelectCliente.nome}"/>
-            <h:commandButton value="Buscar"/>
+            <h:commandButton value="Buscar"/><br></br>
             <h:dataTable value="#{jsfSelectCliente.select}" var="cli">
                 <h:column>
-                    <h:outputLabel value="#{cli.idcliente}"></h:outputLabel>  
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputLabel value="#{cli.idcliente}"></h:outputLabel>
                 </h:column>
                 <h:column>
-                    <h:outputLabel value="#{cli.nome}"></h:outputLabel>  
+                    <f:facet name="header">Nome</f:facet>
+                    <h:outputLabel value="#{cli.nome}"></h:outputLabel>
                 </h:column>
                 <h:column>
+                    <f:facet name="header">Data de Nasc.</f:facet>
                     <h:outputLabel value="#{cli.nasc}">
-                        <f:convertDateTime type="date" pattern="mm-dd-yyyy"/>
+                        <f:convertDateTime type="date" pattern="dd/mm/yyyy"/>
                     </h:outputLabel>
                 </h:column>
                 <h:column>
+                    <f:facet name="header">Sexo</f:facet>
                     <h:outputLabel value="#{cli.sexo}"></h:outputLabel>
                 </h:column>
                 <h:column>
+                    <f:facet name="header">cod. profissão</f:facet>
                     <h:outputLabel value="#{cli.fkfuncionario}"></h:outputLabel>
                 </h:column>      
             </h:dataTable>
