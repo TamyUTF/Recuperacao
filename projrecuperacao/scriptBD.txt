@@ -1,0 +1,13 @@
+create table funcionario(
+idfuncionario integer primary key,
+descricao varchar(20) not null
+)
+
+create table cliente(
+idcliente integer primary key,
+fkfuncionario integer not null,
+nome varchar(50) not null,
+nasc date not null,
+sexo char not null,
+constraint fk_funcionario foreign key (fkfuncionario) references funcionario(idfuncionario)
+)
